@@ -22,3 +22,18 @@ jobs:
     
     - name: Run project
       run: python main.py
+
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Write to file
+      run: |
+        echo "Hello, world!" > my_file.txt
+
+    - name: Commit changes
+      run: |
+        git config --global user.email "geissoncr@gmail.com"
+        git config --global user.name "geissoncr"
+        git add my_file.txt
+        git commit -m "Add new file"
+        git push
