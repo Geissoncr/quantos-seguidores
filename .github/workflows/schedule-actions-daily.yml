@@ -1,0 +1,24 @@
+
+name: Daily Excution
+run-name: ${{ github.actor }} was made dis action
+on:
+  schedule:
+    - cron: '59 23 * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+    
+    - name: Run project
+      run: python main.py
