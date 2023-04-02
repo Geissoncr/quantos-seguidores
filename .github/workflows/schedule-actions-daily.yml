@@ -36,4 +36,5 @@ jobs:
         git config --global user.name "geissoncr"
         git add my_file.txt
         git commit -m "Add new file"
-        git push
+        git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
+      env: ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
