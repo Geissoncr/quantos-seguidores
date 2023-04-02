@@ -7,6 +7,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
     
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
@@ -20,15 +22,11 @@ jobs:
       run: python main.py
       
     - name: Write to file
-      run: |
-        echo "Hello, world!" > my_file_test.txt
+      run: date +%s > my_file_test.txt
 
     - name: test Commit changes
       run: |
         git config --global user.email "geissoncr@gmail.com"
         git config --global user.name "geissoncr"
-        git add my_file_test.txt
-        git commit -m "Add new file"
+        git commit -am "Test de gravação de arquivos"
         git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
-      env: 
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
