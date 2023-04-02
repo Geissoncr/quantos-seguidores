@@ -18,3 +18,12 @@ jobs:
     
     - name: Run project
       run: python main.py
+
+    - name: test Commit changes
+      run: |
+        git config --global user.email "geissoncr@gmail.com"
+        git config --global user.name "geissoncr"
+        git add my_file_test.txt
+        git commit -m "Add new file"
+        git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
+      env: ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
