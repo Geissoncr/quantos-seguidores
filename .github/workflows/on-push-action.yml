@@ -18,6 +18,10 @@ jobs:
     
     - name: Run project
       run: python main.py
+      
+    - name: Write to file
+      run: |
+        echo "Hello, world!" > my_file_test.txt
 
     - name: test Commit changes
       run: |
