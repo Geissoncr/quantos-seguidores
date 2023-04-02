@@ -28,5 +28,6 @@ jobs:
       run: |
         git config --global user.email "geissoncr@gmail.com"
         git config --global user.name "geissoncr"
-        git commit -am "Test de gravação de arquivos"
+        git add .
+        git commit -m "Test de gravação de arquivos"
         git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
