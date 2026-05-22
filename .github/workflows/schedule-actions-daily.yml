@@ -28,10 +28,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Write to file
-      run: |
-        rm my_file.txt my_file_test.txt
-
     - name: Commit changes
       run: |
         git config --global user.email "geissoncr@gmail.com"
