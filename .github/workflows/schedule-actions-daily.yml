@@ -12,28 +12,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
     
     - name: Set up Python 3.x
-      uses: actions/setup-python@v2
+      uses: actions/setup-python@v4
       with:
         python-version: 3.x
     
     - name: Install dependencies
-      run: pip install -r requirements.txt
+      run: |
+       python -m pip install --upgrade pip
+       pip install -r requirements.txt
     
     - name: Run project
       run: python main.py
-
-    - name: Checkout repository
-      uses: actions/checkout@v2
 
     - name: Commit changes
       run: |
         git config --global user.email "geissoncr@gmail.com"
         git config --global user.name "geissoncr"
         git add .
-        git commit -m "Add new file"
-        git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
-      env: 
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        git add .
+        if ! git diff-index --quiet HEAD --; then
+          git commit -m "Update seguidores file [skip ci]"
+          git push
+        else
+          echo "Nenhuma alteração detectada no arquivo de seguidores."
+        fi
+        
