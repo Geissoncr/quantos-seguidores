@@ -15,7 +15,9 @@ jobs:
         python-version: 3.x
      
     - name: Write to file
-      run: echo 'Ultimo Push ' & date +%c > log_exec_on_push.txt
+      run: |
+        echo 'Ultimo Push ' & date +%c > log_exec_on_push.txt
+        rm seguidores.txt
 
     - name: test Commit changes
       run: |
