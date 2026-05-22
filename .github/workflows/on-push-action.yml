@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        ACCESS_TOKEN: ${{ secrets.PAT }}
+        token: ${{ secrets.PAT }}
     
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
@@ -28,5 +28,5 @@ jobs:
         git config --global user.email "geissoncr@gmail.com"
         git config --global user.name "geissoncr"
         git add .
-        git commit -m "Test de gravação de arquivos"
+        git commit -m "Gravação de arquivos no push log_exec_on_push.txt"
         git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
