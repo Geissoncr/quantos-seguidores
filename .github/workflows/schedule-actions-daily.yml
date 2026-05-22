@@ -4,6 +4,8 @@ run-name: ${{ github.actor }} was made dis action
 on:
   schedule:
     - cron: '59 23 * * *'
+    # Adicione esta linha para liberar o botão de execução manual
+  workflow_dispatch:
 
 jobs:
   build:
