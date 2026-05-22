@@ -7,7 +7,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
       with:
-        token: ${{ secrets.PAT }}
+        secrets: ${{ secrets.PAT }}
     
     - name: Set up Python 3.x
       uses: actions/setup-python@v2
