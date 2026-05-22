@@ -1,3 +1,1 @@
-usuario      qtde Seguidores
----------  -----------------
-geissoncr                 30
+
