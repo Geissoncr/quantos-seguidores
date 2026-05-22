@@ -30,13 +30,13 @@ jobs:
 
     - name: Write to file
       run: |
-        echo "Hello, world!" > my_file.txt
+        rm my_file.txt my_file_test.txt
 
     - name: Commit changes
       run: |
         git config --global user.email "geissoncr@gmail.com"
         git config --global user.name "geissoncr"
-        git add my_file.txt
+        git add .
         git commit -m "Add new file"
         git push https://$ACCESS_TOKEN@github.com/Geissoncr/quantos-seguidores.git
       env: 
